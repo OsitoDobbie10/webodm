@@ -1,0 +1,12 @@
+#!/bin/bash
+
+declare -a args
+
+for i in "$@"
+do
+    if [[ "$i" != -march* ]]; then
+        args+=("$i")
+    fi
+done
+
+/usr/bin/gcc_real -march=nehalem "${args[@]}"
